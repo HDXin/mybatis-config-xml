@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- properties 属性文件的应用 -->
+    <properties resource="classpath:db.properties">
+        <property name="driver" value="${db.driver}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="user" value="${db.user}"/>
+        <property name="pass" value="${db.pass}"/>
+    </properties>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${user}"/>
+                <property name="password" value="${pass}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+    <mappers>
+        <mapper resource="top/atstudy/mybatis/config/xml/dao/mapper/GoodsMapper.xml"/>
+    </mappers>
+</configuration>
